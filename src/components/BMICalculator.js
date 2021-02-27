@@ -1,6 +1,8 @@
 import React from 'react'
+import FormInput from './FormInput'
 
 const BMICalculator = () => {
+    const onChangeInput = e => {}
     return (
         <>
         <div className='bmi-inputs'>
@@ -18,7 +20,28 @@ const BMICalculator = () => {
                         </select>
                     </div>
                 </div>
-                <input type='text' />
+                <FormInput
+                    type="text"
+                    name="heightCount"
+                    title={`Height {cm}`}
+                    value=""
+                    onChange={onChangeInput}
+                 />
+                 <FormInput
+                    type="text"
+                    name="inchesCount"
+                    title={`Height {inches}`}
+                    value=""
+                    onChange={onChangeInput}
+                 />
+                 <FormInput
+                    type="text"
+                    name="heightCount"
+                    title={`Weight {kg}`}
+                    value=""
+                    onChange={onChangeInput}
+                 />
+                 
             </div>
             <button className='button' type='submit'>
                 Reset
