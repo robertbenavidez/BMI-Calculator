@@ -14,7 +14,7 @@ const BMICalculator = (props) => {
         weightCount: '0',
     });
     // destructured Keys from count object
-    const { heightCount, inchesCount, weightCount} = count
+    const { heightCount, inchesCount, weightCount} = count;
 
     useEffect(() => {
         metricBMI(heightCount, weightCount);
@@ -40,7 +40,7 @@ const BMICalculator = (props) => {
 
     const resetFields = e => {
         e.preventDefault();
-        
+        getBmiValue(0)
         setUnit('Metric');
         setCount({
             heightCount: '0',
@@ -51,7 +51,7 @@ const BMICalculator = (props) => {
         setWeightUnit("kg");
     }
 
-    const metricBMI = (height, weight) => {
+    const metricBMI = (height, weight,) => {
         if (height > 0 && weight > 0) {
             const centimeterToMeter = height / 100
             const bmi = weight / (centimeterToMeter * centimeterToMeter);
@@ -61,7 +61,7 @@ const BMICalculator = (props) => {
     }
 
     const imperialBMI = (height, weight, inches) => {
-        if (height > 0 && weight > 0) {
+        if (height > 0 && weight > 0 && inches > 0) {
             const heightToInches = (height * 12) + parseInt(inches);
             const bmi = 703 * (weight / (heightToInches * heightToInches))
             getBmiValue(Math.round(bmi))
